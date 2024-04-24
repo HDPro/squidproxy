@@ -38,9 +38,10 @@ if [ ! -f ${CONF} ]; then
 fi
 
 # ADD ACCOUNT AND RESTART SQUID
-sudo /usr/bin/htpasswd -b -c /etc/squid/passwd ${USERNAME} ${PASSWORD} > /dev/null 2>&1
+/usr/bin/htpasswd -b -c /etc/squid/passwd ${USERNAME} ${PASSWORD} > /dev/null 2>&1
 systemctl reload squid > /dev/null 2>&1
-systemctl restart squid > /dev/null 2>&1
+#systemctl restart squid > /dev/null 2>&1
+clear
 
 # PRINT INFO
 echo "Success!"
