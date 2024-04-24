@@ -1,9 +1,9 @@
 #!/bin/bash
 
 random_user() {
-	USER_START=`perl -le "print map+(a..z)[rand 62],0..6"`;
-	USER_END=`perl -le "print map+(a..z)[rand 62],0..6"`;
-	USER=${USER_START}${NUMERIC_CHAR}${USER_END}
+	USER_START=`perl -le "print map+(a..z)[rand 62],0..7"`;
+	USER_END=`perl -le "print map+(a..z)[rand 62],0..7"`;
+	USER=${USER_START}${USER_END}
 	echo $USER
 }
 
