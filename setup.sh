@@ -27,6 +27,7 @@ CONF=/etc/squid/squid.conf
 
 if [ ! -f ${CONF} ]; then
 	# DOWNLOAD AND INSTALL
+	apt install -y net-tools
 	wget https://raw.githubusercontent.com/serverok/squid-proxy-installer/master/squid3-install.sh -O install.sh
 	bash install.sh
 
@@ -36,9 +37,8 @@ if [ ! -f ${CONF} ]; then
 fi
 
 # ADD ACCOUNT AND RESTART SQUID
-/usr/bin/htpasswd -b -c /etc/squid/passwd ${USERNAME} ${PASSWORD} > /dev/null 2>&1
-systemctl reload squid > /dev/null 2>&1
-#systemctl restart squid > /dev/null 2>&1
+/usr/bin/htpasswd -b -c /etc/squid/passwd ${USERNAME} ${PASSWORD}
+systemctl reload squid
 clear
 
 # PRINT INFO
