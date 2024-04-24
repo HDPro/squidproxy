@@ -22,7 +22,7 @@ random_pass() {
 USERNAME=`random_user`
 PASSWORD=`random_pass`
 IP=`wget -q -O - http://myip.directadmin.com`
-PORT=16996
+PORT=3128
 CONF=/etc/squid/squid.conf
 
 if [ ! -f ${CONF} ]; then
@@ -33,7 +33,7 @@ if [ ! -f ${CONF} ]; then
 
 	# CHANGE PORT
 	sed -i 's/^http_port.*$/http_port '${PORT}'/g' ${CONF}
-	sudo ufw allow ${PORT}
+	#sudo ufw allow ${PORT}
 fi
 
 # ADD ACCOUNT AND RESTART SQUID
