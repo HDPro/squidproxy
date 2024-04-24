@@ -22,18 +22,17 @@ random_pass() {
 USERNAME=`random_user`
 PASSWORD=`random_pass`
 IP=`wget -q -O - http://myip.directadmin.com`
-PORT=3128
+PORT=16996
 CONF=/etc/squid/squid.conf
 
 if [ ! -f ${CONF} ]; then
 	# DOWNLOAD AND INSTALL
-	apt install -y net-tools
 	wget https://raw.githubusercontent.com/serverok/squid-proxy-installer/master/squid3-install.sh -O install.sh
 	bash install.sh
 
 	# CHANGE PORT
 	sed -i 's/^http_port.*$/http_port '${PORT}'/g' ${CONF}
-	#sudo ufw allow ${PORT}
+	sudo ufw allow ${PORT}
 fi
 
 # ADD ACCOUNT AND RESTART SQUID
