@@ -43,5 +43,6 @@ systemctl reload squid > /dev/null 2>&1
 clear
 
 # PRINT INFO
+echo "${IP}:${PORT}:${USERNAME}:${PASSWORD}" >> setup.log
 echo "Success!"
 echo "${IP}:${PORT}:${USERNAME}:${PASSWORD}"
