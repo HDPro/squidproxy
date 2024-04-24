@@ -32,8 +32,7 @@ if [ ! -f ${CONF} ]; then
 
 	# CHANGE PORT
 	sed -i 's/^http_port.*$/http_port '${PORT}'/g' ${CONF}
-	firewall-cmd --zone=public --permanent --add-port=${PORT}/tcp > /dev/null 2>&1
-	firewall-cmd --reload > /dev/null 2>&1
+	sudo ufw allow ${PORT}
 fi
 
 # ADD ACCOUNT AND RESTART SQUID
